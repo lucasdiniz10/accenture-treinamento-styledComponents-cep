@@ -47,6 +47,8 @@ export const InfoContainer = styled.section`
       outline: transparent;
       cursor: default;
 
+      color: var(--input-gray);
+
       border: 1px solid var(--green);
       border-radius: 10px;
     }
