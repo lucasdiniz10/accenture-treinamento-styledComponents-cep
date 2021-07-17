@@ -1,9 +1,7 @@
 import React from 'react';
 import { InfoContainer } from "./styles";
 
-// import { Container } from './styles';
-
-function Cep() {
+function Cep(props) {
   return (
     <InfoContainer>
       <div className="leftList">
@@ -13,7 +11,7 @@ function Cep() {
             <input
               type="text"
               value="Uberlândia"
-              readonly="true"
+              readOnly
             />
           </li>
           <li>
@@ -21,7 +19,7 @@ function Cep() {
             <input
               type="text"
               value="Rua teste"
-              readonly="true"
+              readOnly
             />
           </li>
           <li>
@@ -29,7 +27,7 @@ function Cep() {
             <input
               type="text"
               value="Apto. 10"
-              readonly="true"
+              readOnly
             />
           </li>
         </ul>
@@ -41,8 +39,8 @@ function Cep() {
             <input
               type="text"
               value="Centro"
-              readonly="true"
               id="bairro"
+              readOnly
             />
           </li>
           <li>
@@ -50,8 +48,8 @@ function Cep() {
             <input
               type="text"
               value="MG"
-              readonly="true"
               id="uf"
+              readOnly
             />
           </li>
         </ul>

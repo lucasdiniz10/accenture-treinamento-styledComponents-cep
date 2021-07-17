@@ -24,28 +24,28 @@ export const Container = styled.main`
       border: 1px solid var(--white-line);
       border-radius: 10px;
     }
+  }
+`;
 
-    button {
-      width: 200px;
-      margin-left: 45px;
-      border-radius: 10px;
-      border: none;
-      font-size: 1.4rem;
+export const Button = styled.button`
+  width: 200px;
+  margin-left: 45px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.4rem;
 
-      color: var(--white);
-      background: var(--green-button);
+  color: var(--white);
+  background: var(--green-button);
 
-      transition: filter 0.2s;
+  transition: filter 0.2s;
 
-      &:hover {
-        filter: brightness(0.9);
-      }
+  &:hover {
+    filter: brightness(0.9);
+  }
 
-      &:disabled {
-        background: var(--gray);
-        color: var(--white);
-        cursor: not-allowed;
-      }
-    }
+  &:disabled {
+    background: var(--gray);
+    color: var(--white);
+    cursor: not-allowed;
   }
 `;

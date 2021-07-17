@@ -1,22 +1,50 @@
 import { GlobalStyle } from "./global";
-import { Container } from "./styles"
+import { Container, Button } from "./styles"
 import Cep from './components/Cep';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
-  const isCep = false;
+  const [cep, setCep] = useState('');
+  const [isCepOk, setIsCepOk] = useState(false);
+  const [address, setAddress] = useState({})
+
+  useEffect(() => {
+    if (cep.length === 8) {
+      setIsCepOk(true);
+    } else {
+      setIsCepOk(false);
+    }
+    console.log()
+  }, [cep])
+
+  const handleClickSearchCep = async () => {
+    try {
+      await axios.get("https://viacep.com.br/ws/01001000/json/")
+        .then(res => setAddress(res.data))
+    } catch (error) {
+      alert(`${error.message} - Tente novamente.`)
+    }
+  }
+
 
   return (
     <Container>
-      <form action="">
-        <input type="text" placeholder="Insira o CEP" />
-        <button
+      <form onSubmit={handleClickSearchCep}>
+        <input
+          type="number"
+          placeholder="Insira o CEP"
+          value={cep}
+          onChange={(e) => setCep(e.target.value)}
+        />
+        <Button
           type="submit"
-          disabled={!isCep ? true : false}
+          disabled={!isCepOk ? true : false}
         >
           Pesquisar
-        </button>
+        </Button>
       </form>
-      <Cep />
+      <Cep /* address={address} */ />
       <GlobalStyle />
     </Container>
   );
