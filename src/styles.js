@@ -44,11 +44,8 @@ export const Container = styled.main`
       &:disabled {
         background: var(--gray);
         color: var(--white);
+        cursor: not-allowed;
       }
     }
   }
-`;
-
-export const Button = styled.button`
-
 `;
