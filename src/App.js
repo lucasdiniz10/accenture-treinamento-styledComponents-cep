@@ -18,13 +18,16 @@ function App() {
     console.log()
   }, [cep])
 
-  const handleClickSearchCep = async () => {
+  const handleClickSearchCep = (e) => {
+    e.preventDefault();
+
     try {
-      await axios.get("https://viacep.com.br/ws/01001000/json/")
+      axios.get(`https://viacep.com.br/ws/${cep}/json/`)
         .then(res => setAddress(res.data))
     } catch (error) {
       alert(`${error.message} - Tente novamente.`)
     }
+    console.log(address)
   }
 
 
