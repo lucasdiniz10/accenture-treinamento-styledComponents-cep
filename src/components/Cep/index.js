@@ -10,7 +10,7 @@ function Cep(props) {
             <label>Cidade</label>
             <input
               type="text"
-              value="Uberlândia"
+              value={props.cep.localidade ? props.cep.localidade : 'Seu endereço'}
               readOnly
             />
           </li>
@@ -18,7 +18,7 @@ function Cep(props) {
             <label>Endereço</label>
             <input
               type="text"
-              value="Rua teste"
+              value={props.cep.logradouro ? props.cep.logradouro : 'Sua Rua'}
               readOnly
             />
           </li>
@@ -26,7 +26,7 @@ function Cep(props) {
             <label>Complemento</label>
             <input
               type="text"
-              value="Apto. 10"
+              value={props.cep.complemento ? props.cep.complemento : '...'}
               readOnly
             />
           </li>
@@ -38,7 +38,7 @@ function Cep(props) {
             <label>Bairro</label>
             <input
               type="text"
-              value="Centro"
+              value={props.cep.bairro ? props.cep.bairro : 'Seu Bairro'}
               id="bairro"
               readOnly
             />
@@ -47,7 +47,7 @@ function Cep(props) {
             <label>UF</label>
             <input
               type="text"
-              value="MG"
+              value={props.cep.uf ? props.cep.uf : 'Sua UF'}
               id="uf"
               readOnly
             />

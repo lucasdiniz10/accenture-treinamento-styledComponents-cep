@@ -18,16 +18,19 @@ function App() {
     console.log()
   }, [cep])
 
-  const handleClickSearchCep = (e) => {
+  const handleClickSearchCep = async (e) => {
     e.preventDefault();
 
-    try {
-      axios.get(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(res => setAddress(res.data))
-    } catch (error) {
-      alert(`${error.message} - Tente novamente.`)
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(res => res.data);
+
+    if (response.erro) {
+      alert(`Sem resposta! Tente novamente.`)
+      setCep('');
+      setAddress({})
+    } else {
+      setAddress(response)
     }
-    console.log(address)
   }
 
 
@@ -47,7 +50,7 @@ function App() {
           Pesquisar
         </Button>
       </form>
-      <Cep /* address={address} */ />
+      <Cep cep={address} />
       <GlobalStyle />
     </Container>
   );
