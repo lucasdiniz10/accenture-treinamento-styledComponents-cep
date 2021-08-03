@@ -23,6 +23,21 @@ export const Container = styled.main`
       padding: 1rem;
       border: 1px solid var(--white-line);
       border-radius: 10px;
+      outline: none;
+
+      // retirando as arrows do input number
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      /* Firefox */
+      -moz-appearance: textfield;
+      
+      &:focus {
+        box-shadow: 1px 2px 3px var(--white-line);
+      }
     }
   }
 `;
@@ -33,6 +48,7 @@ export const Button = styled.button`
   border-radius: 10px;
   border: none;
   font-size: 1.4rem;
+  outline: none;
 
   color: var(--white);
   background: var(--green-button);
